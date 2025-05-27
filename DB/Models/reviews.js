@@ -1,7 +1,7 @@
 import { sequelize } from "../Connection.js";
 import { DataTypes } from "sequelize";
 
-const Reviews = sequelize.define("Review", {
+const reviews = sequelize.define("Review", {
   ipAddress: {
     type: DataTypes.STRING,
     allowNull: false,
@@ -15,4 +15,4 @@ const Reviews = sequelize.define("Review", {
     defaultValue: DataTypes.NOW,
   },
 });
-export default Reviews;
+export default reviews;

@@ -18,7 +18,7 @@ const TwoDaysDate = () => {
   return date.toISOString().split("T")[0];
 };
 
-const Urls = sequelize.define(
+const url = sequelize.define(
   "URLS",
   {
     origionalURL: {
@@ -59,4 +59,4 @@ const Urls = sequelize.define(
     },
   }
 );
-export default Urls;
+export default url;

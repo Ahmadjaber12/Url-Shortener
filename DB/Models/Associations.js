@@ -1,13 +1,13 @@
-import Reviews from "./reviews.js";
-import Urls from "./urls.js";
-import User from "./users.js";
+import reviews from "./reviews.js";
+import url from "./urls.js";
+import user from "./users.js";
 let associations = async () => {
-  Urls.hasMany(Reviews);
-  User.hasMany(Urls, {
+  url.hasMany(reviews);
+  user.hasMany(url, {
     foreignKey:{name:"UserId",allowNull:false},
     onDelete: "RESTRICT"
   });
-  Reviews.belongsTo(Urls);
-  Urls.belongsTo(User);
+  reviews.belongsTo(url);
+  url.belongsTo(user);
 };
 export default associations;
