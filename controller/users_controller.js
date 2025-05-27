@@ -1,6 +1,6 @@
 import bcrypt from "bcryptjs";
 import { CreateToken } from "../middleware/token_creation.js";
-import user from "../DB/models/users.js";
+import user from "../DB/models/user.js";
 
 export const register = async (req, res) => {
   const { email, username, password } = req.body;

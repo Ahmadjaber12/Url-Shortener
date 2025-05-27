@@ -1,6 +1,6 @@
 import { Op, Sequelize } from "sequelize";
-import url from "../DB/models/urls.js";
-import User from "../DB/models/users.js";
+import url from "../DB/models/url.js";
+import User from "../DB/models/user.js";
 
 export const createUrl = async (req, res) => {
   const { origionalURL } = req.body;

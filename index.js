@@ -1,6 +1,6 @@
 import express from 'express';
 import { connection } from './DB/Connection.js';
-import associations from './DB/models/associations.js';
+import associations from './DB/models/association.js';
 import router from './route/users_route.js';
 import auth from './middleware/token_verification.js';
 import cookieParser from 'cookie-parser';

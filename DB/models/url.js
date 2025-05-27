@@ -19,7 +19,7 @@ const TwoDaysDate = () => {
 };
 
 const url = sequelize.define(
-  "URLS",
+  "Url",
   {
     origionalURL: {
       type: DataTypes.STRING,
