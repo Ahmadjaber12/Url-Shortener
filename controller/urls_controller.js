@@ -30,18 +30,15 @@ export const getallUrls = async (req, res) => {
   const fieldName = req.query.fieldName || "ExpiresIn";
 
   const { count, rows: urls } = await url.findAndCountAll({
-    where: { UserId: { [Op.is]: null } },
+    where: { UserId: req.userId },
     limit: +size,
-    attributes: [],
-    include: { model: User },
+    attributes: [fieldName,"origionalURL"],
+    include: { model: User,attributes:[] },
     order: [[User, "username", "DESC"]], // Eager Loading
   });
 
-  if (count) {
-    return res.json(urls);
-  } else {
-    return res.status(200).json({ message: "No Rows" });
-  }
+    return res.status(200).json({urls});
+
 };
 export const deleteUrl = async (req, res) => {
   const { id } = req.params;
@@ -50,6 +47,6 @@ export const deleteUrl = async (req, res) => {
     await url.destroy({ where: { id } });
     return res.status(204).json({ message: "Url deleted successfully" });
   } else {
-    return res.status(200).json({ message: "No Url Found" });
+    return res.status(404).json({ message: "No Url Found" });
   }
 };
